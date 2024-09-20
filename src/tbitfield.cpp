@@ -178,10 +178,13 @@ TBitField TBitField::operator&(const TBitField &bf) // операция "и"
 
 TBitField TBitField::operator~(void) // отрицание
 {
-    TBitField result(this->MemLen);
+    TBitField result(this->BitLen);
     for (int i = 0; i < this->MemLen; i++) {
         result.pMem[i] = ~pMem[i]; //Доработать (Мусор в хвосте)
     }
+    TELEM mask = UINT_MAX;
+    mask >>= (32 - BitLen % 32);
+    result.pMem[result.MemLen - 1] &= mask;
     return result;
 }
 
