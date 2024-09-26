@@ -144,11 +144,19 @@ TBitField TBitField::operator|(const TBitField& bf) // операция "или"
     int maxLen, minLen;
     TBitField result;
     if (BitLen > bf.BitLen) {
+<<<<<<< HEAD
+=======
+        //maxLen = MemLen;
+>>>>>>> b3619082858720243ac6d272225b3b6731fb1a08
         minLen = bf.MemLen;
         result = TBitField(*this);
     }
     else
     {
+<<<<<<< HEAD
+=======
+        //maxLen = bf.MemLen;
+>>>>>>> b3619082858720243ac6d272225b3b6731fb1a08
         minLen = MemLen;
         result = TBitField(bf);
     }
